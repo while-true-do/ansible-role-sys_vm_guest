@@ -23,7 +23,7 @@
     name: "{{ wtd_sys_vm_guest_package }}"
     state: "{{ wtd_sys_vm_guest_package_state }}"
   become: true
-  when: wtd_sys_vm_guest_package
+  when: wtd_sys_vm_guest_package != ""
   tags:
     - vm
     - virtualization
