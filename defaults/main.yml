@@ -1,0 +1,9 @@
+---
+# defaults file for while_true_do.sys_vm_guest
+
+# Virtualization type detection true|false
+wtd_sys_vm_guest_package_detect: true
+# Specify the package, when detection is false
+wtd_sys_vm_guest_package: []
+# State can be present|latest|absent
+wtd_sys_vm_guest_package_state: "present"

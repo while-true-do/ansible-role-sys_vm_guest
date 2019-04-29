@@ -1,0 +1,31 @@
+---
+# tasks file for while_true_do.sys_vm_guest
+
+- name: Detected Virtualization
+  debug:
+    msg: "{{ ansible_virtualization_role }}:{{ ansible_virtualization_type }}"
+
+- name: Include auto-detected guest Vars
+  include_vars: "{{ ansible_virtualization_type }}.yml"
+  when:
+    - wtd_sys_vm_guest_package_detect
+    - ansible_virtualization_role == "guest"
+    - ansible_virtualization_type == "VMware" or
+      ansible_virtualization_type == "kvm"
+  tags:
+    - vm
+    - virtualization
+    - guest
+    - package
+
+- name: Manage VM Guest Packages
+  package:
+    name: "{{ wtd_sys_vm_guest_package }}"
+    state: "{{ wtd_sys_vm_guest_package_state }}"
+  become: true
+  when: wtd_sys_vm_guest_package
+  tags:
+    - vm
+    - virtualization
+    - guest
+    - package

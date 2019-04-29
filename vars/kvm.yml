@@ -1,0 +1,4 @@
+---
+# vars file for while_true_do.sys_vm_guest
+
+wtd_sys_vm_guest_package: "qemu-guest-agent"
