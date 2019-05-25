@@ -62,10 +62,10 @@ git clone https://github.com/while-true-do/ansible-role-sys_vm_guest.git while_t
 ---
 # defaults file for while_true_do.sys_vm_guest
 
-# Virtualization type detection true|false
-wtd_sys_vm_guest_package_detect: true
-# Specify the package, when detection is false
-wtd_sys_vm_guest_package: []
+## Package Management
+wtd_sys_vm_guest_package:
+  - qemu-guest-agent
+  - open-vm-tools
 # State can be present|latest|absent
 wtd_sys_vm_guest_package_state: "present"
 ```
